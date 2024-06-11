@@ -38,16 +38,13 @@ io.on("connection", (socket) => {
       const player1 = waitingPlayers.shift();
       const player2 = waitingPlayers.shift();
       const roomId = `${player1.id}#${player2.id}`;
-      console.log(player1);
       player1.join(roomId);
       player2.join(roomId);
-      //console.log(player1);
 
       games[roomId] = {
         players: [player1, player2],
         isXNext: true,
       };
-      // Emit an event to both players with the partner's username
       player1.emit("paired", {
         partner: player2.username,
         turn: true,
@@ -68,17 +65,14 @@ io.on("connection", (socket) => {
 
     const currentPlayer = game.isXNext ? "O" : "X";
     game.isXNext = !game.isXNext;
-
-    // Broadcast the move to both players in the room
     io.to(room).emit("moveMade", { index, player: currentPlayer });
   });
+
   socket.on("winner", ({ winner, indices, room }) => {
-    //someone won the game
     io.to(room).emit("won", { won: winner, idx: indices });
   });
-  socket.on("disconnect", () => {
-    console.log("User disconnected");
 
+  socket.on("disconnect", () => {
     // Check if the disconnected player was in a game
     for (const roomId in games) {
       const game = games[roomId];
