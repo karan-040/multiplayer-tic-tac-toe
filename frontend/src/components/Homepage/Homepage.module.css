@@ -1,0 +1,76 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-height: 100vh;
+  width: fit-content;
+  margin-top: 10%;
+}
+
+.Heading {
+  font-size: 5rem;
+  font-weight: 900;
+}
+.Username h1 {
+  display: inline;
+}
+.Username {
+  background-color: #1f3540;
+  color: #fff;
+  box-shadow: 0 5px #102129;
+  padding: 0 10rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Username h2 {
+  font-size: 4.5rem;
+  padding-top: 1rem;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.Username input {
+  border: none;
+  outline: none;
+  padding: 0.2rem 26% 0.1rem 1rem;
+  margin: 2rem;
+  font-size: 2rem;
+}
+
+.buttons {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+.but1,
+.but2 {
+  font-size: 3rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+.but1 {
+  background-color: #f3b237;
+  border-bottom: 4px solid #cc8c14;
+  width: 100%;
+}
+.but2 {
+  background-color: #31c4be;
+  border-bottom: 4px solid #118c87;
+  width: 100%;
+}
+/* media queries */
+@media screen and (max-width: 600px) {
+  .Username {
+    padding: 0 5rem;
+  }
+}

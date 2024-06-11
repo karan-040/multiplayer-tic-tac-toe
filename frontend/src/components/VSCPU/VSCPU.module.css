@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  user-select: none;
+}
+.player1,
+.player2 {
+  color: white;
+  font-size: 2rem;
+  padding: 0.8rem 3rem;
+  border-bottom-left-radius: 4rem;
+  border-top-right-radius: 4rem;
+  font-weight: 600;
+}
+.player1 {
+  background-color: #f2b238;
+}
+.player2 {
+  background-color: #30c4be;
+}
+
+.message {
+  color: white;
+  background-color: #1f3540;
+  font-size: 2rem;
+  padding: 0.8rem 5rem;
+  margin: 0 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 3px #10212a;
+  font-weight: 600;
+}
+.wrapper {
+  width: 47rem;
+  height: 47rem;
+  margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.box {
+  background-color: #1f3540;
+  width: 15rem;
+  height: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8rem;
+  color: #ffffff;
+  border-radius: 1.5rem;
+  border-bottom: 5px solid #10212a;
+  font-weight: 900;
+}
+.exit {
+  background-color: #a8bec9;
+  padding: 1rem 3rem;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+@media screen and (max-width: 300px) {
+  .message {
+    padding: 0.8rem 3rem;
+  }
+  .player1,
+  .player2 {
+    padding: 0.8rem 1.5rem;
+  }
+}
