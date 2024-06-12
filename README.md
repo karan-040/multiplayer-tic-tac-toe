@@ -1,9 +1,9 @@
-#tic tac toe Multiplayer game
+# tic tac toe Multiplayer game
 
 developed using nodejs, reactjs, and socket.io inorder to get the realtime changes without
 the need to reload the page.
 
-##clone the project
+## clone the project
 
 To clone this project first download the zip or use git clone to clone it to your local system
 
