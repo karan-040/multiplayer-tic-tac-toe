@@ -13,6 +13,7 @@ const UseSocket = () => {
     setWinner,
     socket,
     roomID,
+    setError,
   } = useContext(OnlineContext);
 
   const setTurn = (index) => {
@@ -49,8 +50,7 @@ const UseSocket = () => {
     };
 
     const handleOpponentDisconnected = () => {
-      alert("opponent disconnected");
-      Navigate("/");
+      setError("Opponent left the game");
     };
 
     socket.on("moveMade", handleMoveMade);

@@ -4,6 +4,7 @@ import UserContext from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import OnlineContext from "../../contexts/OnlineContext";
 import UseSocket from "../../hooks/useSocket";
+import Disconnected from "../Disconnected/Disconnected";
 
 const Online = () => {
   const {
@@ -19,6 +20,8 @@ const Online = () => {
     setSocket,
     setWinner,
     setMove,
+    error,
+    setError,
   } = useContext(OnlineContext);
 
   const Navigate = useNavigate();
@@ -43,6 +46,7 @@ const Online = () => {
       setMove(true);
       socket.disconnect();
       setSocket("");
+      setError("");
     };
   }, []); // Empty dependency array ensures this runs only on mount and unmount
 
@@ -63,6 +67,7 @@ const Online = () => {
         )}
         <span className={style.player2}>{opponent}</span>
       </div>
+      {error != "" && <Disconnected />}
       <div className={style.wrapper}>
         {gameState.map((item) => (
           <div

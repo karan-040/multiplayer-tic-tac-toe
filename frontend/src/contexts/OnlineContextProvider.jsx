@@ -21,6 +21,7 @@ function OnlineContextProvider({ children }) {
   const [opponent, setOpponent] = useState("");
   const [player, setPlayer] = useState();
   const [roomID, setroomID] = useState();
+  const [error, setError] = useState("");
   return (
     <OnlineContext.Provider
       value={{
@@ -38,6 +39,8 @@ function OnlineContextProvider({ children }) {
         setPlayer,
         roomID,
         setroomID,
+        error,
+        setError,
       }}
     >
       {children}

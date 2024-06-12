@@ -38,6 +38,7 @@ const Homepage = () => {
             maxLength={"8"}
             onChange={(e) => setUser(e.target.value)}
             autoFocus
+            value={user}
           />
         </div>
         <div className={style.buttons}>

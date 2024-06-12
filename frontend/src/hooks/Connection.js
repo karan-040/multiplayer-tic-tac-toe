@@ -5,8 +5,15 @@ import UserContext from "../contexts/UserContext";
 import conf from "../config/conf";
 
 function Connection() {
-  const { setMove, setSocket, setPlayer, setOpponent, setroomID } =
-    useContext(OnlineContext);
+  const {
+    setMove,
+    setSocket,
+    setPlayer,
+    setOpponent,
+    setroomID,
+    setError,
+    error,
+  } = useContext(OnlineContext);
   const { user } = useContext(UserContext);
 
   //code to connect to server for online playing
@@ -15,7 +22,6 @@ function Connection() {
     socket.on("connect", () => {
       setSocket(socket);
       socket.emit("setUsername", user);
-      console.log("connected to backend");
     });
     socket.on("paired", ({ partner, turn, player, room }) => {
       setOpponent(partner);
@@ -24,16 +30,22 @@ function Connection() {
       setroomID(room);
     });
     //<==================================ERROR HANDLING===================>
-    socket.on("connect_error", (err) => {
-      console.log("Connection error:", err);
+    socket.on("connect_error", () => {
+      const err = "could not reach our servers";
+      setError(err);
+      socket.close();
     });
 
     socket.on("connect_timeout", () => {
-      console.log("Connection timeout");
+      let err = "Connection timeout";
+      setError(err);
+      socket.close();
     });
 
     socket.on("reconnect_failed", () => {
-      console.log("Reconnection failed");
+      let err = "Reconnection failed";
+      setError(err);
+      socket.close();
     });
   };
   return [connectToServer];
