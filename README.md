@@ -1,6 +1,11 @@
 # Multiplayer Tic Tac Toe 🎮
+[![Deployment Status](https://img.shields.io/badge/deployed-success-brightgreen)](https://multiplayer-tic-tac-toe-frontend.onrender.com/)
 
 Welcome to the Multiplayer Tic Tac Toe project! This game allows you to play Tic Tac Toe either against the CPU in single-player mode or challenge players online in multiplayer mode.
+
+## Deployment
+
+The game is deployed and can be played live here: [Play Multiplayer Tic Tac Toe](https://multiplayer-tic-tac-toe-frontend.onrender.com/)
 
 ## Table of Contents
 
@@ -48,9 +53,5 @@ To run the project locally, follow these steps:
    npm run start
    ```
 4. Open your browser and navigate to `http://localhost:3000`.
-
-## Deployment
-
-The game is deployed and can be played live here: [Play Multiplayer Tic Tac Toe](https://multiplayer-tic-tac-toe-frontend.onrender.com/)
 
 Feel free to contribute to the project! If you have any feedback or suggestions, open an issue or submit a pull request. Enjoy playing! 🎉
