@@ -23,6 +23,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+console.log("Frontend URL:", process.env.FRONTEND_URL);
 
 app.get("/", (req, res) => {
   res.send("hiii welcome to the game");
