@@ -3,31 +3,35 @@ import { Server } from "socket.io";
 import { createServer } from "http";
 import dotenv from "dotenv";
 import cors from "cors";
+
 dotenv.config({
   path: "./.env",
 });
 
-const port = process.env.PORT;
+const port = process.env.PORT || 10000; // Default port if not set
 const app = express();
+
+// CORS configuration
+const corsOptions = {
+  origin: process.env.FRONTEND_URL, // Client domain
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true, // Allow credentials if needed
+};
+
+app.use(cors(corsOptions));
+
 const server = createServer(app);
 const io = new Server(server, {
-  cors: {
-    origin: process.env.FRONTEND_URL,
-    methods: ["GET", "POST"],
-  },
+  cors: corsOptions,
 });
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL, // Client domain
-    methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+
 console.log("Frontend URL:", process.env.FRONTEND_URL);
 
 app.get("/", (req, res) => {
-  res.send("hiii welcome to the game");
+  res.send("Hi, welcome to the game");
 });
+
 let waitingPlayers = [];
 let games = {};
 
@@ -35,6 +39,7 @@ io.on("connection", (socket) => {
   socket.on("setUsername", (username) => {
     socket.username = username;
     waitingPlayers.push(socket);
+
     if (waitingPlayers.length >= 2) {
       const player1 = waitingPlayers.shift();
       const player2 = waitingPlayers.shift();
@@ -60,6 +65,7 @@ io.on("connection", (socket) => {
       });
     }
   });
+
   socket.on("Move", ({ index, room }) => {
     const game = games[room];
     if (!game) return;
@@ -95,5 +101,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(port, () => {
-  console.log(`server started on port->${port}`);
+  console.log(`Server started on port -> ${port}`);
 });
