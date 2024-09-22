@@ -51,6 +51,6 @@ To run the project locally, follow these steps:
 
 ## Deployment
 
-The game is deployed and can be played live here: [Play Multiplayer Tic Tac Toe](https://multiplayer-tic-tac-toe-w3ko.onrender.com){:target="\_blank"}
+The game is deployed and can be played live here: [Play Multiplayer Tic Tac Toe](https://multiplayer-tic-tac-toe-frontend.onrender.com/)
 
 Feel free to contribute to the project! If you have any feedback or suggestions, open an issue or submit a pull request. Enjoy playing! 🎉
